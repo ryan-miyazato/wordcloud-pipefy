@@ -1,0 +1,23 @@
+{
+  "name": "projeto-wordcloud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon --exec node app.js"
+  },
+    "dependencies": {
+      "fs": "^0.0.1-security", 
+      "child-process": "^1.0.2",
+      "path": "^0.12.7",
+      "cors": "^2.8.5",
+      "dotenv": "^16.0.2",
+      "express": "^4.17.1",
+      "js-sha512": "^0.8.0",
+      "ml-regression": "^5.0.0",
+      "mssql": "^7.1.3",
+      "mysql2": "^2.2.5",
+      "nodemon": "^2.0.7"
+    }
+}

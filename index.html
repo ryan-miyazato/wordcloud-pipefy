@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button onclick="executarPython('00:e0:4c:36:39:83')">gerar wordcloud</button>
+        <div id="wordcloud">
+        </div>
+    </div>
+    
+</body>
+</html>
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
+<script src="teste.js"></script>
+<script>
+function wordcloud(chamados) {
+
+    var data = []
+    for (var i = 0; i < chamados.length; i++) {
+      data.push({ "x": chamados[i].alerta, "value": chamados[i].frequencia });
+    }
+
+    // create a tag (word) cloud chart
+    var chart = anychart.tagCloud(data);
+
+    // set a chart title
+    // set an array of angles at which the words will be laid out
+    chart.angles([0])
+    // enable a color range
+    chart.colorRange(false);
+    // set the color range length
+    chart.colorRange().length('80%');
+
+    // display the word cloud chart
+    var wc = document.getElementById("wordcloud");
+    wc.innerHTML = '';
+    chart.container("wordcloud");
+    chart.draw();
+}
+</script>
